@@ -13,6 +13,7 @@
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
 
     <!-- Google fonts -->
 
@@ -33,53 +34,114 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body class="bg-light">
 
     <!-- Nav bar -->
 
-    <section class="navigation-bar">
-      <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <div class="container-fluid">
-          <img
-            src="/static/img/write.png"
-            alt="ToDo
-                Icon"
-            class="image"/>
-          <a class="navbar-brand nav-link white-text" href="#">ToDo list</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link white-text" aria-current="page" href="#"
-                  >Sign up</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link white-text" href="#">Log in</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link white-text" href="#">Contact</a>
-              </li>
-            </ul>
+      <section class="navigation-bar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info py-3 navbar-dark-hover-color">
+          <div class="container-fluid">
+            <img src="/static/img/write.png" alt="ToDo-logo" class="logo"/>
+            <a class="navbar-brand nav-link text-light" href="#">ToDo list</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item ms-auto">
+                  <a class="nav-link text-light" href="#">Create to-do</a>
+                </li>
+                <li class="nav-item ms-auto">
+                  <a class="nav-link text-light" href="#">Sign up</a>
+                </li>
+                <li class="nav-item ms-auto">
+                  <a class="nav-link text-light" href="#">Log in</a>
+                </li>
+                <li class="nav-item ms-auto">
+                  <a class="nav-link text-light" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
-    </section>
+        </nav>
+      </section>
+    
 
     <!-- Middle secttion -->
 
-    <section class="middle-section">
-        <img src="/static/img/to-do-list.png" alt="gradient-image" class="gradient-image">
-        <h1>Maximize your productivity - You will succeed with us!</h1>
+    <section class="bg-light -dark p-5 -center text-sm-start">
+      <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+          <div>
+            <h1>Maximize your productivity - You will succeed with us!</h1>
+            <p class="lead my-4">
+              Organise your life and increase your productivity with our advanced to-do list. Stop wasting any more time searching and forgetting important responsibilities. Our platform offers an intuitive user interface that allows you to easily create, track and complete tasks.
+            </p>
+            <button class="btn btn-info btn-lg btn-dark-hover my-3 text-light hover-item">Sign up - it's free!</button>
+          </div>
+          <img src="/static/img/to-do-list.png" alt="ToDo list image" class="img-fluid w-40 d-none d-sm-block">
+        </div>
+      </div>
     </section>
+
+    <!-- Features -->
+
+    <section class="bg-info p-5">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3 text-info">
+                  <i class="bi bi-hand-thumbs-up-fill"></i>
+                </div>
+                <h2 class="card-title mb-3 text-dark">
+                  Easy to use.
+                </h2>
+                <p class="card-text text-dark">
+                  Our application was created with simplicity and intuitive use in mind. With our easy-to-use interface, task management has become a breeze.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md text-dark">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3 text-info">
+                  <i class="bi bi-arrow-down-circle-fill"></i>
+                </div>
+                <h2 class="card-title mb-3 text-dark">
+                  Tasks in one place.
+                </h2>
+                <p class="card-text text-dark">
+                  ToDo list is the perfect solution for those who are looking for convenience and order in one place. Collect your tasks, schedules and notes in one central place that is always available.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md text-dark">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3 text-info">
+                  <i class="bi bi-hand-thumbs-up-fill"></i>
+                </div>
+                <h2 class="card-title mb-3 text-dark">
+                  Easy to use.
+                </h2>
+                <p class="card-text text-dark">
+                  Our application was created with simplicity and intuitive use in mind. With our easy-to-use interface, task management has become a breeze.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
   </body>
 </html>

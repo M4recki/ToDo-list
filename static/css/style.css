@@ -1,32 +1,16 @@
 body {
-    font-family: 'Geologica', sans-serif;
+  font-family: "Geologica", sans-serif;
 }
 
-.white-text {
-    color: white;
+.hover-item:hover {
+  color: #333333;
 }
 
 /* Navigation bar */
 
-.navbar-nav {
-    margin-left: auto;
-}
-
-.nav-link:hover {
-    color: #333333;
-}
-
-.image {
-    color: white;
-    width: 50px;
-    height: 50px;
-    margin: 0px 15px;
-}
-
-/* Middle section */
-
-.gradient-image {
-    float: right;
-    width: 20%;
-    height: 20%;
+.logo {
+  color: white;
+  width: 50px;
+  height: 50px;
+  margin: 0px 15px;
 }
