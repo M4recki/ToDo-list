@@ -14,3 +14,18 @@ from datetime import datetime
 import psycopg2
 
 app = Flask(__name__)
+
+Bootstrap(app)
+
+
+@app.route('/')
+def home_page():
+    return render_template('start_page.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('sign_up_page.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

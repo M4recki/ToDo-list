@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="/static/img/write.png">
+    <link rel="shortcut icon" type="image/png" href="/static/img/write.png" />
     <title>ToDo list</title>
 
     <!-- Bootstrap -->
@@ -14,7 +14,11 @@
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous" />
 
     <!-- Google fonts -->
 
@@ -29,67 +33,52 @@
     <link rel="stylesheet" href="/static/css/style.css" />
 
     <!-- Javascript -->
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"></script>
   </head>
 
   <body class="bg-light">
 
     <!-- Navigation bar -->
 
-      <section class="navigation-bar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-info py-3 ">
-          <div class="container-fluid">
-            <img src="/static/img/write.png" alt="ToDo-logo" class="logo"/>
-            <a class="navbar-brand nav-link text-light hover-item" href="#">ToDo list</a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item ms-auto">
-                  <a class="nav-link text-light hover-item" href="#">Create to-do</a>
-                </li>
-                <li class="nav-item ms-auto">
-                  <a class="nav-link text-light hover-item" href="#">Sign up</a>
-                </li>
-                <li class="nav-item ms-auto">
-                  <a class="nav-link text-light hover-item" href="#">Log in</a>
-                </li>
-                <li class="nav-item ms-auto">
-                  <a class="nav-link text-light hover-item" href="#">Contact</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </section>
-    
+    {% include "navigation_bar.html" %}
 
     <!-- Middle section -->
 
     <section class="bg-light p-5 text-sm-start">
-      <div class="container">
-        <div class="d-sm-flex align-items-center justify-content-between">
-          <div>
-            <h1>Maximize your productivity - You will succeed with us!</h1>
-            <p class="lead my-4">
-              Organise your life and increase your productivity with our advanced to-do list. Stop wasting any more time searching and forgetting important responsibilities. Our platform offers an intuitive user interface that allows you to easily create, track and complete tasks.
-            </p>
-            <button class="btn btn-info btn-lg hover-item my-3 text-light ">
-              <a class="text-decoration-none text-light hover-item" href="#">Create task</a>
-            </button>
+      <header>
+        <div class="container">
+          <div class="d-sm-flex align-items-center justify-content-between">
+            <div>
+              <h1>Maximize your productivity - You will succeed with us!</h1>
+              <p class="lead my-4">
+                Organise your life and increase your productivity with our
+                advanced to-do list. Stop wasting any more time searching and
+                forgetting important responsibilities. Our platform offers an
+                intuitive user interface that allows you to easily create, track
+                and complete tasks.
+              </p>
+              <button class="btn btn-info btn-lg hover-text my-3 text-light">
+                <a class="text-decoration-none text-light hover-text" href="#"
+                  >Create task</a
+                >
+              </button>
+            </div>
+            <img
+              src="/static/img/to-do-list.png"
+              alt="ToDo list image"
+              class="img-fluid w-40 d-none d-md-block" />
           </div>
-          <img src="/static/img/to-do-list.png" alt="ToDo list image" class="img-fluid w-40 d-none d-sm-block">
         </div>
-      </div>
+      </header>
     </section>
 
     <!-- Features -->
@@ -103,11 +92,12 @@
                 <div class="h1 mb-3 text-info">
                   <i class="bi bi-hand-thumbs-up-fill"></i>
                 </div>
-                <h2 class="card-title mb-3 text-dark">
-                  Easy to use.
-                </h2>
-                <p class="card-text text-dark">
-                  Our application was created with simplicity and intuitive use in mind. With our easy-to-use interface, task management has become a breeze. Do not waste time on complicated tools, choose our application and enjoy the simplicity of use today!
+                <h2 class="card-title mb-3 text-dark">Easy to use.</h2>
+                <p class="card-text text-dark opinion-text">
+                  Our application was created with simplicity and intuitive use
+                  in mind. With our easy-to-use interface, task management has
+                  become a breeze. Do not waste time on complicated tools,
+                  choose our application and enjoy the simplicity of use today!
                 </p>
               </div>
             </div>
@@ -118,11 +108,12 @@
                 <div class="h1 mb-3 text-info">
                   <i class="bi bi-arrow-down-circle-fill"></i>
                 </div>
-                <h2 class="card-title mb-3 text-dark">
-                  Tasks in one place.
-                </h2>
-                <p class="card-text text-dark">
-                  ToDo list is the perfect solution for those who are looking for convenience and order in one place. Collect your tasks, schedules and notes in one central place that is always available.
+                <h2 class="card-title mb-3 text-dark">Tasks in one place.</h2>
+                <p class="card-text text-dark opinion-text">
+                  ToDo list is the perfect solution for those who are looking
+                  for convenience and order in one place. Collect your tasks,
+                  schedules and notes in one central place that is always
+                  available.
                 </p>
               </div>
             </div>
@@ -136,8 +127,12 @@
                 <h2 class="card-title mb-3 text-dark">
                   Seamless Accessibility.
                 </h2>
-                <p class="card-text text-dark">
-                  Our app is available on various platforms, including smartphones and tablets. Thanks to this, you can access your tasks and information from anywhere and at any time. Whether you're on the go or working remotely, our app will keep you mobile and flexible.
+                <p class="card-text text-dark opinion-text">
+                  Our app is available on various platforms, including
+                  smartphones and tablets. Thanks to this, you can access your
+                  tasks and information from anywhere and at any time. Whether
+                  you're on the go or working remotely, our app will keep you
+                  mobile and flexible.
                 </p>
               </div>
             </div>
@@ -145,17 +140,27 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Opinions -->
 
     <section class="opinions">
-      <div id="opinions-carousel" class="carousel slide my-5" data-bs-ride="carousel">
+      <div
+        id="opinions-carousel"
+        class="carousel slide my-5"
+        data-bs-ride="carousel">
         <div class="carousel-inner text-center">
           <div class="carousel-item active">
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="container">
-                <h2 class="my-5 opinion-text">"I am delighted with this app! My tasks are now organized in one place, I can easily prioritize them and track their progress. It's a huge relief for my productivity. Thank you!"</h2>
-                <img src="/static/img/Jan.jpg" alt="Jan's image" class="profile-picture">
+                <h2 class="my-5 p-5">
+                  "I am delighted with this app! My tasks are now organized in
+                  one place, I can easily prioritize them and track their
+                  progress. It's a huge relief for my productivity. Thank you!"
+                </h2>
+                <img
+                  src="/static/img/Jan.jpg"
+                  alt="Jan's image"
+                  class="profile-picture" />
                 <p class="my-2">Jan</p>
               </div>
             </div>
@@ -163,8 +168,16 @@
           <div class="carousel-item">
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="container">
-                <h2 class="my-5 opinion-text">"Now I can't imagine managing tasks without this application. It's easy to use, intuitive and gives me full control over my tasks. I don't get lost in many lists and notes anymore. It really makes my life easier!"</h2>
-                <img src="/static/img/Carolina.jpg" alt="Carolina's image" class="profile-picture">
+                <h2 class="my-5 p-5">
+                  "Now I can't imagine managing tasks without this application.
+                  It's easy to use, intuitive and gives me full control over my
+                  tasks. I don't get lost in many lists and notes anymore. It
+                  really makes my life easier!"
+                </h2>
+                <img
+                  src="/static/img/Carolina.jpg"
+                  alt="Carolina's image"
+                  class="profile-picture" />
                 <p class="my-2">Carolina</p>
               </div>
             </div>
@@ -172,37 +185,61 @@
           <div class="carousel-item">
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="container">
-                <h2 class="my-5 opinion-text">"This task management application is pure pleasure! The interface is aesthetically pleasing and intuitive, and the functions are very helpful. My productivity has increased since I started using it. I am very happy with the results!"</h2>
-                <img src="/static/img/Caitlyn.jpg" alt="Caitlyn's image" class="profile-picture">
+                <h2 class="my-5 p-5">
+                  "This task management application is pure pleasure! The
+                  interface is aesthetically pleasing and intuitive, and the
+                  functions are very helpful. My productivity has increased
+                  since I started using it. I am very happy with the results!"
+                </h2>
+                <img
+                  src="/static/img/Caitlyn.jpg"
+                  alt="Caitlyn's image"
+                  class="profile-picture" />
                 <p class="my-2">Caitlyn</p>
               </div>
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev carousel-dark" type="button" data-bs-target="#opinions-carousel" data-bs-slide="prev">
+        <button
+          class="carousel-control-prev carousel-dark"
+          type="button"
+          data-bs-target="#opinions-carousel"
+          data-bs-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </button>
-        <button class="carousel-control-next carousel-dark" type="button" data-bs-target="#opinions-carousel" data-bs-slide="next">
+        <button
+          class="carousel-control-next carousel-dark"
+          type="button"
+          data-bs-target="#opinions-carousel"
+          data-bs-slide="next">
           <span class="carousel-control-next-icon"></span>
         </button>
       </div>
     </section>
-    
+
     <!-- Encouragement -->
 
     <section class="encouragement bg-info p-5 d-flex">
       <div class="container">
         <div class="row text-center">
           <div>
-            <h2 class="text-light h1">Come and join our growing community of satisfied users!</h2>
-          
+            <h2 class="text-light h1">
+              Come and join our growing community of satisfied users!
+            </h2>
+
             <button class="btn btn-light btn-lg my-3 text-dark">
-              <a class="text-decoration-none text-dark hover-item" href="#">Create task</a>
-          </button>
+              <a class="text-decoration-none text-dark hover-text" href="#"
+                >Sign up - it's free!</a
+              >
+            </button>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Footer -->
+
+    {% include "footer.html" %}
+    
   </body>
 </html>

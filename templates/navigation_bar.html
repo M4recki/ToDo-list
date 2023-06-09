@@ -1,0 +1,31 @@
+<section class="navigation-bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info py-3 ">
+      <div class="container-fluid">
+        <a href="{{ url_for('home_page') }}"><img src="/static/img/write-light.png" alt="ToDo-logo" class="logo"/></a>
+        <a class="navbar-brand nav-link text-light hover-text" href="{{ url_for('home_page') }}">ToDo list</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item ms-auto">
+              <a class="nav-link text-light hover-text" href="#">Create to-do</a>
+            </li>
+            <li class="nav-item ms-auto">
+              <a class="nav-link text-light hover-text" href="{{ url_for('signup') }}">Sign up</a>
+            </li>
+            <li class="nav-item ms-auto">
+              <a class="nav-link text-light hover-text" href="#">Log in</a>
+            </li>
+            <li class="nav-item ms-auto">
+              <a class="nav-link text-light hover-text" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
