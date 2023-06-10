@@ -53,21 +53,21 @@
 
     <!-- Middle section -->
 
-    <section class="bg-light p-5 text-sm-start">
+    <section class="home-page bg-light p-5 text-sm-start">
       <header>
         <div class="container">
           <div class="d-sm-flex align-items-center justify-content-between">
             <div>
               <h1>Maximize your productivity - You will succeed with us!</h1>
-              <p class="lead my-4">
+              <label for="short-description" class="lead my-4">
                 Organise your life and increase your productivity with our
                 advanced to-do list. Stop wasting any more time searching and
                 forgetting important responsibilities. Our platform offers an
                 intuitive user interface that allows you to easily create, track
                 and complete tasks.
-              </p>
+              </label>
               <button class="btn btn-info btn-lg hover-text my-3 text-light">
-                <a class="text-decoration-none text-light hover-text" href="#"
+                <a class="text-decoration-none text-light hover-text" href="{{ url_for('create') }}"
                   >Create task</a
                 >
               </button>
@@ -83,7 +83,7 @@
 
     <!-- Features -->
 
-    <section class="bg-info p-5">
+    <section class=" features bg-info p-5">
       <div class="container">
         <div class="row text-center">
           <div class="col-md d-flex">
@@ -93,12 +93,12 @@
                   <i class="bi bi-hand-thumbs-up-fill"></i>
                 </div>
                 <h2 class="card-title mb-3 text-dark">Easy to use.</h2>
-                <p class="card-text text-dark opinion-text">
+                <label for="feature-description" class="card-text text-dark opinion-text">
                   Our application was created with simplicity and intuitive use
                   in mind. With our easy-to-use interface, task management has
                   become a breeze. Do not waste time on complicated tools,
                   choose our application and enjoy the simplicity of use today!
-                </p>
+                </label>
               </div>
             </div>
           </div>
@@ -109,12 +109,12 @@
                   <i class="bi bi-arrow-down-circle-fill"></i>
                 </div>
                 <h2 class="card-title mb-3 text-dark">Tasks in one place.</h2>
-                <p class="card-text text-dark opinion-text">
+                <label for="feature description" class="card-text text-dark opinion-text">
                   ToDo list is the perfect solution for those who are looking
                   for convenience and order in one place. Collect your tasks,
                   schedules and notes in one central place that is always
                   available.
-                </p>
+                </label>
               </div>
             </div>
           </div>
@@ -127,13 +127,13 @@
                 <h2 class="card-title mb-3 text-dark">
                   Seamless Accessibility.
                 </h2>
-                <p class="card-text text-dark opinion-text">
+                <label for="feature-description" class="card-text text-dark opinion-text">
                   Our app is available on various platforms, including
                   smartphones and tablets. Thanks to this, you can access your
                   tasks and information from anywhere and at any time. Whether
                   you're on the go or working remotely, our app will keep you
                   mobile and flexible.
-                </p>
+                </label>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@
                   src="/static/img/Jan.jpg"
                   alt="Jan's image"
                   class="profile-picture" />
-                <p class="my-2">Jan</p>
+                <label for="user-name" class="my-2">Jan</label>
               </div>
             </div>
           </div>
@@ -178,7 +178,7 @@
                   src="/static/img/Carolina.jpg"
                   alt="Carolina's image"
                   class="profile-picture" />
-                <p class="my-2">Carolina</p>
+                <label for="user-name" class="my-2">Carolina</label>
               </div>
             </div>
           </div>
@@ -195,7 +195,7 @@
                   src="/static/img/Caitlyn.jpg"
                   alt="Caitlyn's image"
                   class="profile-picture" />
-                <p class="my-2">Caitlyn</p>
+                <label for="user-name" class="my-2">Caitlyn</label>
               </div>
             </div>
           </div>
@@ -228,7 +228,7 @@
             </h2>
 
             <button class="btn btn-light btn-lg my-3 text-dark">
-              <a class="text-decoration-none text-dark hover-text" href="#"
+              <a class="text-decoration-none text-dark hover-text" href="{{ url_for('signup') }}"
                 >Sign up - it's free!</a
               >
             </button>

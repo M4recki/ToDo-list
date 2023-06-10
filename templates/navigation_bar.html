@@ -13,16 +13,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item ms-auto">
-              <a class="nav-link text-light hover-text" href="#">Create to-do</a>
+              <a class="nav-link text-light hover-text" href="{{ url_for('create') }}">Create to-do</a>
             </li>
             <li class="nav-item ms-auto">
               <a class="nav-link text-light hover-text" href="{{ url_for('signup') }}">Sign up</a>
             </li>
             <li class="nav-item ms-auto">
-              <a class="nav-link text-light hover-text" href="#">Log in</a>
+              <a class="nav-link text-light hover-text" href="{{ url_for('login') }}">Log in</a>
             </li>
             <li class="nav-item ms-auto">
-              <a class="nav-link text-light hover-text" href="#">Contact</a>
+              <a class="nav-link text-light hover-text" href="{{ url_for('contact') }}">Contact</a>
             </li>
           </ul>
         </div>

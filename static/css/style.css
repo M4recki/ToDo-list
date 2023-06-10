@@ -1,12 +1,16 @@
+/* General font */
+
 body {
   font-family: "Geologica", sans-serif;
 }
+
+/* Hover text */
 
 .hover-text:hover {
   color: #333333 !important;
 }
 
-/* Navigation bar */
+/* Navigation bar logo */
 
 .logo {
   width: 50px;
@@ -14,7 +18,7 @@ body {
   margin: 0px 15px;
 }
 
-/* Carousel */
+/* Carousel images */
 
 .profile-picture {
   width: 100px;
@@ -29,7 +33,7 @@ body {
   line-height: 1.5;
 }
 
-/* Form */
+/* Form checkbox color */
 
 input[type="checkbox"]:checked {
   background-color: #00CED1;

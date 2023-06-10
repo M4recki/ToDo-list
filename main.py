@@ -20,11 +20,23 @@ Bootstrap(app)
 
 @app.route('/')
 def home_page():
-    return render_template('start_page.html')
+    return render_template('home_page.html')
+
+@app.route('/create')
+def create():
+    return render_template('create_todo_page.html')
 
 @app.route('/signup')
 def signup():
     return render_template('sign_up_page.html')
+
+@app.route('/login')
+def login():
+    return render_template('login_page.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact_page.html')
 
 
 if __name__ == '__main__':
