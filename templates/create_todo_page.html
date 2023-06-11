@@ -61,28 +61,31 @@
           <div class="card-body">
             <form class="row g-3 needs-validation" novalidate>
               <div class="col-md-6">
-                
-                <div class="invalid-feedback">
-                 Please choose one of the options
+                <div class="col-md-6">
+                  <label for="priority" class="form-label">Priority</label>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <label for="lastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastName" required>
-                <div class="invalid-feedback">
-                  Please provide a valid last name.
+                  <div class="btn-group">
+                    <button class="btn btn-info dropdown-toggle text-light" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" id="priority" required>
+                      Select priority of your ToDo
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li class="py-2"><label for="Must-ToDo-priority">Must ToDo</label></li>
+                      <li class="py-2"><label for="Secondary-ToDo-priority">Secondary ToDo</label></li>
+                      <li class="py-2"><label for="Optional-ToDo-priority">Optional ToDo</label></li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              
               <div class="col-12">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" required>
                 <div class="invalid-feedback">
                   Please provide a valid email address.
                 </div>
               </div>
               <div class="col-12">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="5" required></textarea>
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" id="content" rows="5" required></textarea>
                 <div class="invalid-feedback">
                   Please provide a message.
                 </div>
