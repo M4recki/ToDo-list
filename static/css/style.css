@@ -38,3 +38,17 @@ body {
 input[type="checkbox"]:checked {
   background-color: #00CED1;
 }
+
+/* Dropdown button colors */
+
+.bg-must-todo, .bg-must-todo:hover {
+  background-color: #bb2d3b;
+}
+
+.bg-secondary-todo, .bg-secondary-todo:hover {
+  background-color: #ffca2c;
+}
+
+.bg-optional-todo, .bg-optional-todo:hover {
+  background-color: #0b5ed7;
+}
