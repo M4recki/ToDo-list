@@ -45,6 +45,8 @@ class ToDo(db.Model):
     priority = db.Column(db.String(20), nullable=False)
     title = db.Column(db.String(250), unique=True, nullable=False)
     content = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = relationship(User, backref='todos')
 
     
 
@@ -59,19 +61,32 @@ def create():
     return render_template('create_todo_page.html')
 
 # Sign up
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template('sign_up_page.html')
+    form = RegisterForm()
+    if form.validate_on_submit():
+        return redirect(url_for('home_page'))
+    
+    return render_template('sign_up_page.html', form=form)
+
 
 # Login
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login_page.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect(url_for('home_page'))
+    
+    return render_template('login_page.html', form=form)
 
 # Contact
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact_page.html')
+    form = ContactForm()
+    if form.validate_on_submit():
+        return redirect(url_for('home_page'))
+    
+    return render_template('contact_page.html', form=form)
 
 # Load user
 @login_manager.user_loader

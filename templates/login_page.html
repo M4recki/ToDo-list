@@ -51,37 +51,51 @@
 
     {% include "navigation_bar.html" %}
 
-    <!-- Login form -->
-
     <section class="login-form p-5">
     <div class="card mx-auto">
         <div class="card-header bg-info text-white text-center px-4">
             Login
         </div>
         <div class="card-body">
-            <form class="row g-3 needs-validation" novalidate>
+
+            <!-- Login form -->
+
+            <form class="row g-3 needs-validation" novalidate method="post">
+              {{ form.csrf_token }}
+              {{ form.hidden_tag() }}
             <div class="col-12">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
-                <div class="invalid-feedback">
-                Please provide a valid email address.
-                </div>
-            </div>
+              <label for="email" class="form-label">Email</label>
+              {{ form.email(class="form-control", id="email") }}
+              {% if form.email.errors %}
+                    <div class="fluid-container py-2">
+                        <ul class="alert alert-danger px-2">
+                            {% for error in form.email.errors %}
+                                <label for="error-message">{{ error }}</label>
+                            {% endfor %}
+                        </ul>
+                    </div>
+              {% endif %}
+          </div>
+          <div class="col-12">
+            <label for="password" class="form-label">Password</label>
+            {{ form.password(class="form-control", id="password") }}
+            {% if form.password.errors %}
+                    <div class="fluid-container py-2">
+                        <ul class="alert alert-danger px-2">
+                            {% for error in form.password.errors %}
+                                <label for="error-message">{{ error }}</label>
+                            {% endfor %}
+                        </ul>
+                    </div>
+            {% endif %}
+          </div>
             <div class="col-12">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required>
-                <div class="invalid-feedback">
-                Please provide a valid password.
-                </div>
+                {{ form.submit(class="btn btn-md btn-info text-light hover-text") }}
             </div>
+          <div class="col-12 mt-3 text-center text-d-none">
+            <label for="redirect-register">Don't have a account? <a href="{{ url_for('signup') }}">Sign up</a></p>
             </div>
-            <div class="col-12">
-                <button class="btn btn-md btn-info text-light hover-text mx-3" type="submit">Login</button>
-            </div>
-            <div class="col-12 mt-3 text-center text-d-none">
-                <p>Don't have a account? <a href="{{ url_for('signup') }}">Sign up</a></p>
-                </div>
-            </form>
+          </form>
         </div>
         </div>
         
