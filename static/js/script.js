@@ -1,4 +1,4 @@
-// Priority Buttons
+// Change color of priority button when clicked
 
 function selectPriority(priorityText) {
   const priorityButton = document.querySelector('#priority');

@@ -56,9 +56,13 @@ def home_page():
     return render_template('home_page.html')
 
 # Create ToDo
-@app.route('/create')
+@app.route('/create', methods=['GET', 'POST'])
 def create():
-    return render_template('create_todo_page.html')
+    form = CreateToDo()
+    if form.validate_on_submit():
+        return redirect(url_for('home_page'))
+    
+    return render_template('create_todo_page.html', form=form)
 
 # Sign up
 @app.route('/signup', methods=['GET', 'POST'])
