@@ -1,12 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, RadioField
 from wtforms.validators import DataRequired, URL, Email
 from flask_ckeditor import CKEditorField
 
 # WTForms
 
 class CreateToDo(FlaskForm):
-    priority = SelectField("Priority", choices=[("must", "Must ToDo"), ("secondary", "Secondary ToDo"), ("optional", "Optional ToDo")], validators=[DataRequired()])
+    priority = SelectField("Select priority of your ToDo", choices=[("must", "Must ToDo"), ("secondary", "Secondary ToDo"), ("optional", "Optional ToDo")], validators=[DataRequired()])
     title = StringField("Title", validators=[DataRequired()])
     content = CKEditorField("Content", validators=[DataRequired()])
     submit = SubmitField("Confirm")
