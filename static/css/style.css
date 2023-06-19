@@ -52,3 +52,8 @@ input[type="checkbox"]:checked {
 .bg-optional-todo, .bg-optional-todo:hover {
   background-color: #0b5ed7;
 }
+
+/* Dropdown menu color  */
+.custom-dropdown option {
+  background-color: white;
+}

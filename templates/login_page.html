@@ -60,7 +60,7 @@
 
             <!-- Login form -->
 
-            <form class="row g-3 needs-validation" novalidate method="post">
+            <form class="row g-3 needs-validation" action="{{ url_for('login') }}" novalidate method="post">
               {{ form.csrf_token }}
               {{ form.hidden_tag() }}
             <div class="col-12">

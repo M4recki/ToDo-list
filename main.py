@@ -69,6 +69,24 @@ def create():
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+        email = form.email.data
+        password = form.password.data
+        
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256', salt_length=9)
+        
+        new_user = User(first_name=first_name, last_name=last_name, email=email, password=hashed_password)
+        
+        if User.query.filter_by(email=email).first():
+            flash('Email already exists. Please login or use a different email.')
+            return redirect(url_for('signup'))
+        
+        db.session.add(new_user)
+        db.session.commit()
+        
+        login_user(new_user)
+        
         return redirect(url_for('home_page'))
     
     return render_template('sign_up_page.html', form=form)
@@ -79,8 +97,20 @@ def signup():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        return redirect(url_for('home_page'))
-    
+        email = form.email.data
+        password = form.password.data
+        
+        user = User.query.filter_by(email=email).first()
+        if not user:
+            flash('Email does not exist. Please register.')
+            return redirect(url_for('login'))
+        elif not check_password_hash(user.password, password):
+            flash('Incorrect password. Please try again.')
+            return redirect(url_for('login'))
+        else:
+            login_user(user)
+            return redirect(url_for('home_page', name='placeholder'))
+
     return render_template('login_page.html', form=form)
 
 # Contact
@@ -88,8 +118,11 @@ def login():
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
+        email = form.email.data
+        message = form.message.data
+        
         return redirect(url_for('home_page'))
-    
+
     return render_template('contact_page.html', form=form)
 
 # Load user
