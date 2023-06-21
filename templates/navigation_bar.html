@@ -20,23 +20,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            {% if not current_user.is_authenticated %}
-            <li class="nav-item ms-auto">
-              <a class="nav-link text-light hover-text" href="{{ url_for('signup') }}">Sign up</a>
-            </li>
-            <li class="nav-item ms-auto">
-              <a class="nav-link text-light hover-text" href="{{ url_for('login') }}">Log in</a>
-            </li>
-            {% endif %}
-            <li class="nav-item ms-auto">
-              <a class="nav-link text-light">Hi, {{ name }}!</a>
-            </li>
-            <li class="nav-item ms-auto">
-              <a class="nav-link text-light hover-text" href="{{ url_for('create') }}">Create ToDo</a>
-            </li>
-            <li class="nav-item ms-auto">
-              <a class="nav-link text-light hover-text" href="{{ url_for('contact') }}">Contact</a>
-            </li>
+            {% if current_user.is_authenticated %}
+              <li class="nav-item ms-auto">
+                  <a class="nav-link text-light">Hi, {{ current_user.first_name }}!</a>
+              </li>
+              <li class="nav-item ms-auto">
+                  <a class="nav-link text-light hover-text" href="{{ url_for('logout') }}">Logout</a>
+              </li>
+              <li class="nav-item ms-auto">
+                  <a class="nav-link text-light hover-text" href="{{ url_for('create') }}">Create ToDo</a>
+              </li>
+              <li class="nav-item ms-auto">
+                <a class="nav-link text-light hover-text" href="{{ url_for('all_todos') }}">Your ToDos</a>
+              </li>
+              <li class="nav-item ms-auto">
+                <a class="nav-link text-light hover-text" href="{{ url_for('contact') }}">Contact</a>
+              </li>
+              {% else %}
+              <li class="nav-item ms-auto">
+                  <a class="nav-link text-light hover-text" href="{{ url_for('signup') }}">Sign up</a>
+              </li>
+              <li class="nav-item ms-auto">
+                  <a class="nav-link text-light hover-text" href="{{ url_for('login') }}">Log in</a>
+              </li>
+              <li class="nav-item ms-auto">
+                <a class="nav-link text-light hover-text" href="{{ url_for('contact') }}">Contact</a>
+              </li>
+              {% endif %}
           </ul>
         </div>
       </div>

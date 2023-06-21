@@ -69,7 +69,7 @@
                   <label for="priority" class="form-label">Priority</label>
                 </div>
                 <div class="btn-group custom-dropdown">
-                  {{ form.priority(class="btn btn-info dropdown-toggle text-light hover-text po", id="priority", type="button")
+                  {{ form.priority(class="btn btn-info dropdown-toggle text-light hover-text", id="priority", type="button" )
                   }}
                   <ul class="dropdown-menu dropdown-menu-end">
                     {% for value, label in form.priority.choices %}

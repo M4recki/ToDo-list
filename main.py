@@ -1,18 +1,10 @@
-from flask import Flask, render_template, redirect, url_for, flash, abort
+from flask import Flask, render_template, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
-from flask_ckeditor import CKEditor
-from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from sqlalchemy import ForeignKey, ForeignKeyConstraint, create_engine, ForeignKey, Column, String, Integer, CHAR
-from sqlalchemy.ext.declarative import declarative_base
-from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
+from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from forms import CreateToDo, RegisterForm, LoginForm, ContactForm
-from flask_gravatar import Gravatar
-from functools import wraps
-from flask import session
-from flask import request
 from os import environ
 
 
@@ -27,7 +19,7 @@ app.config['SECRET_KEY'] = environ.get('SECRET_KEY_TODO')
 Bootstrap(app)
 
 # Database
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///ToDo.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -48,8 +40,6 @@ class ToDo(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     user = relationship(User, backref='todos')
 
-    
-
 # Home page
 @app.route('/')
 def home_page():
@@ -57,12 +47,33 @@ def home_page():
 
 # Create ToDo
 @app.route('/create', methods=['GET', 'POST'])
+@login_required
 def create():
     form = CreateToDo()
     if form.validate_on_submit():
+        priority = form.priority.data
+        title = form.title.data
+        content = form.content.data
+        user_id = current_user.id
+        
+        new_todo = ToDo(priority=priority, title=title, content=content, user_id=user_id)
+        
+        if ToDo.query.filter_by(title=title).first():
+            flash('Title already exists. Please type a different title.')
+            return redirect(url_for('create'))
+        
+        db.session.add(new_todo)
+        db.session.commit()
+        
         return redirect(url_for('home_page'))
     
     return render_template('create_todo_page.html', form=form)
+
+@app.route('/all_todos')
+@login_required
+def all_todos():
+    # todos = ToDo.query.all()
+    return render_template('all_todos_page.html')
 
 # Sign up
 @app.route('/signup', methods=['GET', 'POST'])
@@ -109,7 +120,7 @@ def login():
             return redirect(url_for('login'))
         else:
             login_user(user)
-            return redirect(url_for('home_page', name='placeholder'))
+            return redirect(url_for('home_page', name=User.first_name))
 
     return render_template('login_page.html', form=form)
 
@@ -124,6 +135,12 @@ def contact():
         return redirect(url_for('home_page'))
 
     return render_template('contact_page.html', form=form)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('home_page'))
 
 # Load user
 @login_manager.user_loader

@@ -71,11 +71,17 @@
                 intuitive user interface that allows you to easily create, track
                 and complete tasks.
               </label>
+              {% if current_user.is_authenticated %}
               <button class="btn btn-info btn-lg hover-text my-3 text-light">
                 <a class="text-decoration-none text-light hover-text" href="{{ url_for('create') }}"
-                  >Create task</a
-                >
+                  >Create task</a>
               </button>
+              {% else %}
+              <button class="btn btn-info btn-lg hover-text my-3 text-light">
+                <a class="text-decoration-none text-light hover-text" href="{{ url_for('login') }}"
+                  >Create task</a>
+              </button>
+              {% endif %}
             </div>
             <img
               src="/static/img/to-do-list.png"

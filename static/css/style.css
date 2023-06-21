@@ -56,4 +56,5 @@ input[type="checkbox"]:checked {
 /* Dropdown menu color  */
 .custom-dropdown option {
   background-color: white;
+  color: black;
 }
