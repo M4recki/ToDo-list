@@ -66,6 +66,7 @@
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
               {{ form.email(class="form-control", id="email") }}
+              
               {% if form.email.errors %}
                     <div class="fluid-container py-2">
                         <ul class="alert alert-danger px-2">
@@ -75,28 +76,42 @@
                         </ul>
                     </div>
               {% endif %}
-          </div>
-          <div class="col-12">
-            <label for="password" class="form-label">Password</label>
-            {{ form.password(class="form-control", id="password") }}
-            {% if form.password.errors %}
-                    <div class="fluid-container py-2">
-                        <ul class="alert alert-danger px-2">
-                            {% for error in form.password.errors %}
-                                <label for="error-message">{{ error }}</label>
-                            {% endfor %}
-                        </ul>
-                    </div>
-            {% endif %}
-          </div>
+          
+            </div>
             <div class="col-12">
-                {{ form.submit(class="btn btn-md btn-info text-light hover-text") }}
-            </div>
-          <div class="col-12 mt-3 text-center text-d-none">
-            <label for="redirect-register">Don't have a account? <a href="{{ url_for('signup') }}">Sign up</a></p>
-            </div>
-          </form>
-        </div>
+              <label for="password" class="form-label">Password</label>
+              {{ form.password(class="form-control", id="password") }}
+              
+              {% if form.password.errors %}
+                      <div class="fluid-container py-2">
+                          <ul class="alert alert-danger px-2">
+                              {% for error in form.password.errors %}
+                                  <label for="error-message">{{ error }}</label>
+                              {% endfor %}
+                          </ul>
+                      </div>
+              {% endif %}
+              
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <div class="fluid-container py-2">
+                    <ul class="alert alert-danger px-2">
+                        {% for message in messages %}
+                            <label for="error-message">{{ message }}</label>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+              {% endwith %}
+              
+              <div class="col-12">
+                  {{ form.submit(class="btn btn-md btn-info my-3 text-light hover-text") }}
+              </div>
+            <div class="col-12 mt-3 text-center text-d-none">
+              <label for="redirect-register">Don't have a account? <a href="{{ url_for('signup') }}">Sign up</a></p>
+              </div>
+            </form>
+          </div>
         </div>
         
     </section>

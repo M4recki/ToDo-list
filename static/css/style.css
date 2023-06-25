@@ -18,7 +18,7 @@ body {
   margin: 0px 15px;
 }
 
-/* Carousel images */
+/* Carousel images in home page */
 
 .profile-picture {
   width: 100px;
@@ -27,13 +27,13 @@ body {
 }
 
 
-/* Opinions */
+/* Opinions in home page */
 
 .opinion-text {
   line-height: 1.5;
 }
 
-/* Form checkbox color */
+/* Form checkbox color in sign up form */
 
 input[type="checkbox"]:checked {
   background-color: #00CED1;
@@ -53,8 +53,18 @@ input[type="checkbox"]:checked {
   background-color: #0b5ed7;
 }
 
-/* Dropdown menu color  */
+/* Dropdown menu color in create todo  */
 .custom-dropdown option {
   background-color: white;
   color: black;
+}
+
+/* Word wrap card in all_todos */
+
+.todo-content {
+  max-width: 100%;
+  height: 100px;
+  overflow: auto;
+  word-wrap: break-word;
+  padding-right: 20px;
 }

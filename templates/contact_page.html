@@ -67,6 +67,7 @@
               <div class="col-12">
                 <label for="email" class="form-label">Email</label>
                 {{ form.email(class="form-control", id="email") }}
+                
                 {% if form.email.errors %}
                       <div class="fluid-container py-2">
                           <ul class="alert alert-danger px-2">
@@ -76,20 +77,23 @@
                           </ul>
                       </div>
                     {% endif %}
+                
                 </div>
             <div class="col-12 py-2">
               <label for="message" class="form-label">Message</label>
               {{ form.message(class="form-control", id="message", rows="10") }}
+              
               {% if form.message.errors %}
-                      <div class="fluid-container py-2">
-                          <ul class="alert alert-danger px-2">
-                              {% for error in form.message.errors %}
-                                  <label for="error-message">{{ error }}</label>
-                              {% endfor %}
-                          </ul>
-                      </div>
-                    {% endif %}
+                <div class="fluid-container py-2">
+                    <ul class="alert alert-danger px-2">
+                        {% for error in form.message.errors %}
+                            <label for="error-message">{{ error }}</label>
+                        {% endfor %}
+                    </ul>
                 </div>
+              {% endif %}
+              
+            </div>
                 <div class="col-12 py-3">
                   {{ form.submit(class="btn btn-md btn-info text-light hover-text") }}
               </div>

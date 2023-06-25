@@ -68,6 +68,7 @@
             <div class="col-md-6">
                 <label for="firstName" class="form-label">First name</label>
                 {{ form.first_name(class="form-control", id="firstName") }}
+                
                 {% if form.first_name.errors %}
                   <div class="fluid-container py-2">
                       <ul class="alert alert-danger px-2">
@@ -77,10 +78,12 @@
                       </ul>
                   </div>
                 {% endif %}
+
             </div>
             <div class="col-md-6">
               <label for="lastName" class="form-label">Last name</label>
               {{ form.last_name(class="form-control", id="LastName") }}
+              
               {% if form.last_name.errors %}
                   <div class="fluid-container py-2">
                       <ul class="alert alert-danger px-2">
@@ -90,10 +93,12 @@
                       </ul>
                   </div>
                 {% endif %}
+
           </div>
           <div class="col-12">
             <label for="email" class="form-label">Email</label>
             {{ form.email(class="form-control", id="email") }}
+            
             {% if form.email.errors %}
                   <div class="fluid-container py-2">
                       <ul class="alert alert-danger px-2">
@@ -103,6 +108,19 @@
                       </ul>
                   </div>
                 {% endif %}
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <div class="fluid-container py-2">
+                <ul class="alert alert-danger px-2">
+                    {% for message in messages %}
+                        <label for="error-message">{{ message }}</label>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+          {% endwith %}
+  
         </div>
         <div class="col-12">
           <label for="password" class="form-label">Password</label>

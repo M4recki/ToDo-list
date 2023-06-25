@@ -55,18 +55,24 @@
 
     <!-- Create ToDo form -->
 
-    <section class="create-todo-form p-5">
-        <div class="card mx-auto">
-          <div class="card-header bg-info text-white text-center">
-            Your ToDos
-          </div>
-          <div class="card-body">
-            <div class="col-md-6">
-              <div class="col-md-6">
-                
+    <section class="all-todos p-5">
+      <div class="container">
+        <div class="row text-center">
+          {% for todo in todos %}
+          <div class="col-md-4 py-4">
+            <div class="card mb-4 h-100">
+              <div class="card-header bg-{{ todo.priority }}-todo">{{ todo.priority.title() }} ToDo</div>
+              <div class="card-body">
+                <h5 class="card-title">{{ todo.title }}</h5>
+                <p class="card-text todo-content">{{ todo.content }}</p>
               </div>
             </div>
-      </section>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    
 
     <!-- Footer -->
 

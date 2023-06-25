@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, get_flashed_messages
 from flask_bootstrap import Bootstrap
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -35,11 +35,23 @@ class User(UserMixin, db.Model):
 class ToDo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     priority = db.Column(db.String(20), nullable=False)
-    title = db.Column(db.String(250), unique=True, nullable=False)
+    title = db.Column(db.String(25), unique=True, nullable=False)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     user = relationship(User, backref='todos')
-
+    
+    def is_title_valid(self):
+        max_title_length = 25 
+        
+        if len(self.title) > max_title_length:
+            flash('Title is too long. Please type a shorter title.')
+            return False
+        
+        existing_todo = ToDo.query.filter_by(title=self.title).first()
+        if existing_todo:
+            flash('Title must be unique.')
+            return False
+        
 # Home page
 @app.route('/')
 def home_page():
@@ -62,6 +74,9 @@ def create():
             flash('Title already exists. Please type a different title.')
             return redirect(url_for('create'))
         
+        if not new_todo.is_title_valid():
+            return redirect(url_for('create'))
+        
         db.session.add(new_todo)
         db.session.commit()
         
@@ -72,8 +87,8 @@ def create():
 @app.route('/all_todos')
 @login_required
 def all_todos():
-    # todos = ToDo.query.all()
-    return render_template('all_todos_page.html')
+    todos = ToDo.query.filter_by(user_id=current_user.id).all()
+    return render_template('all_todos_page.html', todos=todos)
 
 # Sign up
 @app.route('/signup', methods=['GET', 'POST'])
@@ -100,7 +115,8 @@ def signup():
         
         return redirect(url_for('home_page'))
     
-    return render_template('sign_up_page.html', form=form)
+    flash_messages = get_flashed_messages()
+    return render_template('sign_up_page.html', form=form, flash_messages=flash_messages)
 
 
 # Login
@@ -122,7 +138,8 @@ def login():
             login_user(user)
             return redirect(url_for('home_page', name=User.first_name))
 
-    return render_template('login_page.html', form=form)
+    flash_messages = get_flashed_messages()
+    return render_template('login_page.html', form=form, flash_messages=flash_messages)
 
 # Contact
 @app.route('/contact', methods=['GET', 'POST'])
