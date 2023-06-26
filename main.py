@@ -84,6 +84,22 @@ def create():
     
     return render_template('create_todo_page.html', form=form)
 
+# Edit ToDo
+@app.route('/edit/<int:todo_id>', methods=['GET', 'POST'])
+@login_required
+def edit(todo_id):
+    todo = ToDo.query.get(todo_id)
+    form = CreateToDo(priority=todo.priority, title=todo.title, content=todo.content)
+    
+    return render_template('edit_todo_page.html', form=form)
+    
+# Delete ToDo
+@app.post('/delete/<int:todo_id>')
+@login_required
+def delete(todo_id):
+    todo = ToDo.query.get(todo_id)
+    return render_template('delete_todo_page.html', todo=todo)
+
 @app.route('/all_todos')
 @login_required
 def all_todos():

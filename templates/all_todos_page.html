@@ -65,6 +65,10 @@
               <div class="card-body">
                 <h5 class="card-title">{{ todo.title }}</h5>
                 <p class="card-text todo-content">{{ todo.content }}</p>
+                <div class="d-grip gap-2 md-flex justify-content-md-end">
+                  <a href="{{ url_for('edit', todo_id=todo.id) }}" class="btn btn-primary me-md-2">Edit</a>
+                  <a href="{{ url_for('delete', todo_id=todo.id) }}" class="btn btn-danger">Delete</a>
+                </div>
               </div>
             </div>
           </div>
