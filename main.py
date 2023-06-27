@@ -47,11 +47,6 @@ class ToDo(db.Model):
             flash('Title is too long. Please type a shorter title.')
             return False
         
-        existing_todo = ToDo.query.filter_by(title=self.title).first()
-        if existing_todo:
-            flash('Title must be unique.')
-            return False
-        
 # Home page
 @app.route('/')
 def home_page():
@@ -74,9 +69,6 @@ def create():
             flash('Title already exists. Please type a different title.')
             return redirect(url_for('create'))
         
-        if not new_todo.is_title_valid():
-            return redirect(url_for('create'))
-        
         db.session.add(new_todo)
         db.session.commit()
         
@@ -91,7 +83,20 @@ def edit(todo_id):
     todo = ToDo.query.get(todo_id)
     form = CreateToDo(priority=todo.priority, title=todo.title, content=todo.content)
     
-    return render_template('edit_todo_page.html', form=form)
+    if form.validate_on_submit():
+        priority = form.priority.data
+        title = form.title.data
+        content = form.content.data
+        
+        todo.priority = priority
+        todo.title = title
+        todo.content = content
+        
+        db.session.commit()
+        
+        return redirect(url_for('home_page'))
+    
+    return render_template('edit_todo_page.html', form=form, todo_id=todo_id)
     
 # Delete ToDo
 @app.post('/delete/<int:todo_id>')
