@@ -72,7 +72,7 @@ def create():
         db.session.add(new_todo)
         db.session.commit()
         
-        return redirect(url_for('home_page'))
+        return redirect(url_for('all_todos'))
     
     return render_template('create_todo_page.html', form=form)
 
@@ -99,11 +99,13 @@ def edit(todo_id):
     return render_template('edit_todo_page.html', form=form, todo_id=todo_id)
     
 # Delete ToDo
-@app.post('/delete/<int:todo_id>')
+@app.route('/delete/<int:todo_id>', methods=['GET', 'POST'])
 @login_required
 def delete(todo_id):
-    todo = ToDo.query.get(todo_id)
-    return render_template('delete_todo_page.html', todo=todo)
+    todo_to_delete = ToDo.query.get(todo_id)
+    db.session.delete(todo_to_delete)
+    db.session.commit()
+    return redirect(url_for('all_todos'))
 
 @app.route('/all_todos')
 @login_required
