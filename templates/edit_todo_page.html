@@ -57,7 +57,7 @@
 
     <section class="edit-todo-form p-5">
         <div class="card mx-auto">
-          <div class="card-header bg-info text-white text-center">
+          <div class="card-header bg-info text-dark text-center">
             Edit ToDo
           </div>
           <div class="card-body">
@@ -69,7 +69,7 @@
                   <label for="priority" class="form-label">Priority</label>
                 </div>
                 <div class="btn-group custom-dropdown">
-                  {{ form.priority(class="btn btn-info dropdown-toggle text-light hover-text", id="priority", type="button", value="{{ form.priority }}" )
+                  {{ form.priority(class="btn btn-info dropdown-toggle text-dark hover-text", id="priority", type="button", value="{{ form.priority }}" )
                   }}
                   <ul class="dropdown-menu dropdown-menu-end">
                     {% for value, label in form.priority.choices %}
@@ -133,7 +133,7 @@
               
               </div>
               <div class="col-12">
-                {{ form.submit(class="btn btn-md btn-info text-light hover-text") }}
+                {{ form.submit(class="btn btn-md btn-info text-dark hover-text") }}
               </div>
             </form>
           </div>

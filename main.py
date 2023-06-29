@@ -6,6 +6,7 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from forms import CreateToDo, RegisterForm, LoginForm, ContactForm
 from os import environ
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -47,6 +48,12 @@ class ToDo(db.Model):
             flash('Title is too long. Please type a shorter title.')
             return False
         
+# Current year in footer
+@app.context_processor
+def current_year():
+    current_year = datetime.now().year
+    return {'current_year': current_year}
+
 # Home page
 @app.route('/')
 def home_page():

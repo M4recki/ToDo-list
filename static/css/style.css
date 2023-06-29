@@ -7,7 +7,7 @@ body {
 /* Hover text */
 
 .hover-text:hover {
-  color: #333333 !important;
+  color: white !important;
 }
 
 /* Navigation bar logo */
@@ -36,20 +36,20 @@ body {
 /* Form checkbox color in sign up form */
 
 input[type="checkbox"]:checked {
-  background-color: #00CED1;
+  background-color: #0dcaf0;
 }
 
 /* Dropdown button colors */
 
-.bg-must-todo, .bg-must-todo:hover {
+.bg-must-todo {
   background-color: #bb2d3b;
 }
 
-.bg-secondary-todo, .bg-secondary-todo:hover {
+.bg-secondary-todo {
   background-color: #ffca2c;
 }
 
-.bg-optional-todo, .bg-optional-todo:hover {
+.bg-optional-todo {
   background-color: #0b5ed7;
 }
 
@@ -67,4 +67,12 @@ input[type="checkbox"]:checked {
   overflow: auto;
   word-wrap: break-word;
   padding-right: 20px;
+}
+
+/* Dialog window in delete todo */
+
+#delete-confirmation {
+  border-color: #0dcaf0;
+  border-radius: 10px;
+  padding: 20px;
 }

@@ -9,42 +9,38 @@
   <section class="navigation-bar">
     <nav class="navbar navbar-expand-lg navbar-light bg-info py-3 ">
       <div class="container-fluid">
-        <a href="{{ url_for('home_page') }}"><img src="/static/img/write-light.png" alt="ToDo-logo" class="logo"/></a>
-        <a class="navbar-brand nav-link text-light hover-text" href="{{ url_for('home_page') }}">ToDo list</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav">
+        <a href="{{ url_for('home_page') }}"><img src="/static/img/write-dark.png" alt="ToDo-logo" class="logo"/></a>
+        <a class="navbar-brand nav-link text-dark hover-text" href="{{ url_for('home_page') }}">ToDo list</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             {% if current_user.is_authenticated %}
               <li class="nav-item ms-auto">
-                  <a class="nav-link text-light">Hi, {{ current_user.first_name }}!</a>
+                  <a class="nav-link text-dark" id="first-name">Hi, {{ current_user.first_name }}!</a>
               </li>
               <li class="nav-item ms-auto">
-                  <a class="nav-link text-light hover-text" href="{{ url_for('logout') }}">Logout</a>
+                  <a class="nav-link text-dark hover-text" id="logout" href="{{ url_for('logout') }}">Logout</a>
               </li>
               <li class="nav-item ms-auto">
-                  <a class="nav-link text-light hover-text" href="{{ url_for('create') }}">Create ToDo</a>
+                  <a class="nav-link text-dark hover-text" id="create" href="{{ url_for('create') }}">Create ToDo</a>
               </li>
               <li class="nav-item ms-auto">
-                <a class="nav-link text-light hover-text" href="{{ url_for('all_todos') }}">Your ToDos</a>
+                <a class="nav-link text-dark hover-text" id="your-todos" href="{{ url_for('all_todos') }}">Your ToDos</a>
               </li>
               <li class="nav-item ms-auto">
-                <a class="nav-link text-light hover-text" href="{{ url_for('contact') }}">Contact</a>
+                <a class="nav-link text-dark hover-text" id="contact" href="{{ url_for('contact') }}">Contact</a>
               </li>
               {% else %}
               <li class="nav-item ms-auto">
-                  <a class="nav-link text-light hover-text" href="{{ url_for('signup') }}">Sign up</a>
+                  <a class="nav-link text-dark hover-text" id="sign-up" href="{{ url_for('signup') }}">Sign up</a>
               </li>
               <li class="nav-item ms-auto">
-                  <a class="nav-link text-light hover-text" href="{{ url_for('login') }}">Log in</a>
+                  <a class="nav-link text-dark hover-text" id="log-in" href="{{ url_for('login') }}">Log in</a>
               </li>
               <li class="nav-item ms-auto">
-                <a class="nav-link text-light hover-text" href="{{ url_for('contact') }}">Contact</a>
+                <a class="nav-link text-dark hover-text" id="contact" href="{{ url_for('contact') }}">Contact</a>
               </li>
               {% endif %}
           </ul>
