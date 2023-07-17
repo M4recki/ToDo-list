@@ -7,6 +7,9 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from forms import CreateToDo, RegisterForm, LoginForm, ContactForm
 from os import environ
 from datetime import datetime
+import smtplib
+from email.message import EmailMessage
+import ssl
 
 
 app = Flask(__name__)
@@ -171,13 +174,34 @@ def login():
     flash_messages = get_flashed_messages()
     return render_template('login_page.html', form=form, flash_messages=flash_messages)
 
+# Send email
+def send_email(email_sender, subject, message):
+    email_receiver = environ.get('EMAIL_RECEIVER_TODO')
+    password = environ.get('EMAIL_PASSWORD_TODO')
+    
+    email = EmailMessage()
+    
+    email['From'] = email_sender
+    email['To'] = email_receiver
+    email['Subject'] = subject
+    email.set_content(message)
+    
+    context = ssl.create_default_context()
+    
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        smtp.login(email_receiver, password)
+        smtp.sendmail(email_sender, email_receiver, email.as_string())
+
 # Contact
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
-        email = form.email.data
+        email_sender = form.email.data
+        subject = form.subject.data + " - " + email_sender
         message = form.message.data
+        
+        send_email(email_sender, subject, message)
         
         return redirect(url_for('home_page'))
 

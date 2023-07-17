@@ -44,11 +44,10 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"></script>
 
-      <script src="/static/js/script.js "></script>
+    <script src="/static/js/script.js "></script>
   </head>
 
   <body class="bg-light">
-
     <!-- Navigation bar -->
 
     {% include "navigation_bar.html" %}
@@ -56,93 +55,92 @@
     <!-- Create ToDo form -->
 
     <section class="create-todo-form p-5">
+      <main>
         <div class="card mx-auto">
           <div class="card-header bg-info text-dark text-center">
             Create ToDo
           </div>
           <div class="card-body">
             <form class="row g-3 needs-validation" novalidate method="post">
-              {{ form.csrf_token }}
-              {{ form.hidden_tag() }}
+              {{ form.csrf_token }} {{ form.hidden_tag() }}
               <div class="col-md-6">
                 <div class="col-md-6">
                   <label for="priority" class="form-label">Priority</label>
                 </div>
                 <div class="btn-group custom-dropdown">
-                  {{ form.priority(class="btn btn-info dropdown-toggle text-dark hover-text", id="priority", type="button" )
-                  }}
+                  {{ form.priority(class="btn btn-info dropdown-toggle text-dark
+                  hover-text", id="priority", type="button" ) }}
                   <ul class="dropdown-menu dropdown-menu-end">
                     {% for value, label in form.priority.choices %}
-                      <li class="py-2">
-                        <label for="{{ value }}-priority" class="dropdown-item" onclick="selectPriority('{{ label }}')">{{ label }}</label>
-                      </li>
+                    <li class="py-2">
+                      <label
+                        for="{{ value }}-priority"
+                        class="dropdown-item"
+                        onclick="selectPriority('{{ label }}')"
+                        >{{ label }}</label
+                      >
+                    </li>
                     {% endfor %}
                   </ul>
                 </div>
-                
+
                 {% if form.priority.errors %}
-                  <div class="fluid-container py-2">
-                    <ul class="alert alert-danger px-2">
-                      {% for error in form.priority.errors %}
-                        <label for="error-message">{{ error }}</label>
-                      {% endfor %}
-                    </ul>
-                  </div>
-                  {% endif %}
-              
-                </div>          
+                <div class="fluid-container py-2">
+                  <ul class="alert alert-danger px-2">
+                    {% for error in form.priority.errors %}
+                    <label for="error-message">{{ error }}</label>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% endif %}
+              </div>
               <div class="col-12">
                 <label for="title" class="form-label">Title</label>
-                {{ form.title(class="form-control", id="title") }}
-                
-                {% if form.title.errors %}
+                {{ form.title(class="form-control", id="title") }} {% if
+                form.title.errors %}
                 <div class="fluid-container py-2">
                   <ul class="alert alert-danger px-2">
                     {% for error in form.title.errors %}
-                      <label for="error-message">{{ error }}</label>
+                    <label for="error-message">{{ error }}</label>
                     {% endfor %}
-                    </ul>
+                  </ul>
                 </div>
-                {% endif %}
-
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                  <div class="fluid-container py-2">
-                    <ul class="alert alert-danger px-2">
-                      {% for message in messages %}
-                          <label for="error-message">{{ message }}</label>
-                      {% endfor %}
-                    </ul>
+                {% endif %} {% with messages = get_flashed_messages() %} {% if
+                messages %}
+                <div class="fluid-container py-2">
+                  <ul class="alert alert-danger px-2">
+                    {% for message in messages %}
+                    <label for="error-message">{{ message }}</label>
+                    {% endfor %}
+                  </ul>
                 </div>
-                {% endif %}
-              {% endwith %}
+                {% endif %} {% endwith %}
               </div>
               <div class="col-12">
                 <label for="content" class="form-label">Content</label>
-                {{ form.content(class="form-control", id="content", rows="10") }}
-                
-                {% if form.content.errors %}
+                {{ form.content(class="form-control", id="content", rows="10")
+                }} {% if form.content.errors %}
                 <div class="fluid-container py-2">
                   <ul class="alert alert-danger px-2">
                     {% for error in form.content.errors %}
-                      <label for="error-message">{{ error }}</label>
+                    <label for="error-message">{{ error }}</label>
                     {% endfor %}
                   </ul>
                 </div>
                 {% endif %}
-              
               </div>
               <div class="col-12">
-                {{ form.submit(class="btn btn-md btn-info text-dark hover-text") }}
+                {{ form.submit(class="btn btn-md btn-info text-dark hover-text")
+                }}
               </div>
             </form>
           </div>
         </div>
-      </section>
+      </main>
+    </section>
 
     <!-- Footer -->
 
     {% include "footer.html" %}
-
   </body>
 </html>

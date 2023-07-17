@@ -44,7 +44,7 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"></script>
 
-      <script src="/static/js/script.js "></script>
+    <script src="/static/js/script.js "></script>
   </head>
 
   <body class="bg-light">
@@ -56,45 +56,67 @@
     <!-- All todos -->
 
     <section class="all-todos">
-      <div class="container py-5">
-        <div class="row text-center py-5">
-
-          {% if not todos %}
+      <main>
+        <div class="container py-5">
+          <div class="row text-center py-5">
+            {% if not todos %}
             <h1 class="text-dark my-5">No ToDos found.</h1>
-            <label for="no-todos-message" class="lead text-dark my-3">You haven't added any todos yet. Start by creating a new todo!</label>
-          {% else %}
-
-            {% for todo in todos %}
+            <label for="no-todos-message" class="lead text-dark my-3"
+              >You haven't added any todos yet. Start by creating a new
+              todo!</label
+            >
+            {% else %} 
+              {% for todo in todos %}
               <div class="col-md-4 py-4">
                 <div class="card mb-4 h-100">
-                  <div class="card-header text-light bg-{{ todo.priority }}-todo">{{ todo.priority.title() }} ToDo</div>
-                  <div class="card-body">
-                    <h5 class="card-title">{{ todo.title }}</h5>
-                    <p class="card-text todo-content" id="content">{{ todo.content }}</p>
+                  <div class="card-header text-light bg-{{ todo.priority }}-todo">
+                    {{ todo.priority.title() }} ToDo
+                  </div>
+                  <div class="card-body justify-content-between">
+                    <p class="card-title lead py-2">{{ todo.title }}</p>
+                    <p class="card-text todo-content align-items-start d-grip" id="content">
+                      {{ todo.content }}
+                    </p>
                     <div class="d-grip gap-2 md-flex justify-content-md-end">
-                      <a href="{{ url_for('edit', todo_id=todo.id) }}" class="btn btn-primary me-md-2 hover-text text-dark">Edit</a>
+                      <a
+                        href="{{ url_for('edit', todo_id=todo.id) }}"
+                        class="btn btn-primary me-md-2 hover-text text-dark"
+                        >Edit</a
+                      >
                       <dialog id="delete-confirmation">
                         Are you sure you want to delete this todo?
                         <div class="button-container my-5">
-                          <button class="btn btn-success me-3 hover-text text-dark" id="cancel-button" onclick="deleteConfirmationClose()">Cancel</button>
-                          <a href="{{ url_for('delete', todo_id=todo.id) }}"><button class="btn btn-danger hover-text text-dark">Confirm Delete</button></a>
+                          <button
+                            class="btn btn-success me-3 hover-text text-dark"
+                            id="cancel-button"
+                            onclick="deleteConfirmationClose()">
+                            Cancel
+                          </button>
+                          <a href="{{ url_for('delete', todo_id=todo.id) }}"
+                            ><button class="btn btn-danger hover-text text-dark">
+                              Confirm Delete
+                            </button></a
+                          >
                         </div>
                       </dialog>
-                      <button class="btn btn-danger hover-text text-dark" onclick="document.getElementById('delete-confirmation').showModal()">Delete</button>
+                      <button
+                        class="btn btn-danger hover-text text-dark"
+                        onclick="document.getElementById('delete-confirmation').showModal()">
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-            {% endfor %}
+            {% endfor %} 
           {% endif %}
+          </div>
         </div>
-      </div>
+      </main>
     </section>
-    
 
     <!-- Footer -->
 
     {% include "footer.html" %}
-
   </body>
 </html>

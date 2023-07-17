@@ -52,17 +52,18 @@
     {% include "navigation_bar.html" %}
 
     <section class="login-form p-5">
-    <div class="card mx-auto">
-        <div class="card-header bg-info text-white text-center px-4">
-            Login
-        </div>
+      <main>
+        <div class="card mx-auto">
+          <div class="card-header bg-info text-white text-center px-4">
+              Login
+          </div>
         <div class="card-body">
 
             <!-- Login form -->
 
-            <form class="row g-3 needs-validation" action="{{ url_for('login') }}" novalidate method="post">
-              {{ form.csrf_token }}
-              {{ form.hidden_tag() }}
+          <form class="row g-3 needs-validation" action="{{ url_for('login') }}" novalidate method="post">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
               {{ form.email(class="form-control", id="email") }}
@@ -76,8 +77,8 @@
                         </ul>
                     </div>
               {% endif %}
-          
             </div>
+
             <div class="col-12">
               <label for="password" class="form-label">Password</label>
               {{ form.password(class="form-control", id="password") }}
@@ -104,17 +105,17 @@
                 {% endif %}
               {% endwith %}
               
-              <div class="col-12">
-                  {{ form.submit(class="btn btn-md btn-info my-3 text-dark hover-text") }}
-              </div>
+            <div class="col-12">
+                {{ form.submit(class="btn btn-md btn-info my-3 text-dark hover-text") }}
+            </div>
             <div class="col-12 mt-3 text-center text-d-none">
               <label for="redirect-register">Don't have a account? <a href="{{ url_for('signup') }}">Sign up</a></p>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-        
-    </section>
+      </div>
+    </main>
+  </section>
 
     <!-- Footer -->
 

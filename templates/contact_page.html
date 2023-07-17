@@ -46,71 +46,92 @@
   </head>
 
   <body class="bg-light">
-
     <!-- Navigation bar -->
 
     {% include "navigation_bar.html" %}
 
     <section class="contact-form p-5">
-      <div class="card mx-auto">
-        <div class="card-header bg-info text-dark text-center">
-          Contact us
-        </div>
-        <div class="card-body">
+      <main>
+        <div class="card mx-auto">
+          <div class="card-header bg-info text-dark text-center">
+            Contact us
+          </div>
+          <div class="card-body">
+            <!-- Contact form -->
 
-          <!-- Contact form -->
-
-          <form class="row g-3 needs-validation" action="{{ url_for('contact') }}" novalidate method="post">
-            {{ form.csrf_token }}
-            {{ form.hidden_tag() }}
-            <div class="col-12">
-              <div class="col-12">
-                <label for="email" class="form-label">Email</label>
-                {{ form.email(class="form-control", id="email") }}
+            <form
+              class="row g-3 needs-validation"
+              action="{{ url_for('contact') }}"
+              novalidate
+              method="post">
+              {{ form.csrf_token }} {{ form.hidden_tag() }}
               
-                {% if form.email.errors %}
+              <div class="col-12">
+                <div class="col-12">
+                  <label for="email" class="form-label">Email</label>
+                  {{ form.email(class="form-control", id="email") }} 
+                  
+                  {% if form.email.errors %}
                   <div class="fluid-container py-2">
                     <ul class="alert alert-danger px-2">
                       {% for error in form.email.errors %}
-                        <li><label for="error-message">{{ error }}</label></li>
+                      <label for="error-message">{{ error }}</label>
                       {% endfor %}
                     </ul>
                   </div>
-                {% endif %}
-              </div>
-              
-              <div class="col-12 py-2">
-                <div>
-                  <label for="message" class="form-label">Message</label>
-                  <div>
-                    {{ form.message(class="form-control", id="message", rows="10") }}
-                  </div>
+                  {% endif %}
                 </div>
-              
-                {% if form.message.errors %}
+
+                <div class="col-12 py-2">
+                  <div>
+                    <label for="subject" class="form-label">Subject</label>
+                    <div>
+                      {{ form.subject(class="form-control", id="subject") }}
+                    </div>
+                  </div>
+
+                  {% if form.subject.errors %}
+                  <div class="fluid-container py-2">
+                    <ul class="alert alert-danger px-2">
+                      {% for error in form.subject.errors %}
+                      <label for="error-message">{{ error }}</label>
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </div>
+
+                <div class="col-12 py-2">
+                  <div>
+                    <label for="message" class="form-label">Message</label>
+                    <div>
+                      {{ form.message(class="form-control", id="message",
+                      rows="10") }}
+                    </div>
+                  </div>
+
+                  {% if form.message.errors %}
                   <div class="fluid-container py-2">
                     <ul class="alert alert-danger px-2">
                       {% for error in form.message.errors %}
-                        <li><label for="error-message">{{ error }}</label></li>
+                      <label for="error-message">{{ error }}</label>
                       {% endfor %}
                     </ul>
                   </div>
-                {% endif %}
+                  {% endif %}
+                </div>
               </div>
-              
-  
-            </div>
-                <div class="col-12 py-3">
-                  {{ form.submit(class="btn btn-md btn-info text-dark hover-text") }}
+              <div class="col-12 py-3">
+                {{ form.submit(class="btn btn-md btn-info text-dark hover-text")
+                }}
               </div>
-              </form>
-            </div>
+            </form>
           </div>
+        </div>
+      </main>
     </section>
 
     <!-- Footer -->
 
     {% include "footer.html" %}
-
   </body>
 </html>

@@ -46,7 +46,7 @@
   </head>
 
   <body class="bg-light">
-
+    
     <!-- Navigation bar -->
 
     {% include "navigation_bar.html" %}
@@ -54,111 +54,106 @@
     <!-- Sign up form -->
 
     <section class="sign-up-form p-5">
-    <div class="card mx-auto">
-        <div class="card-header bg-info text-dark text-center">
-            Sign up
-        </div>
-        <div class="card-body">   
-
+      <div class="card mx-auto">
+        <div class="card-header bg-info text-dark text-center">Sign up</div>
+        <div class="card-body">
           <!-- Register form -->
 
-          <form class="row g-3 needs-validation" action="{{ url_for('signup') }}" novalidate method="post">
-            {{ form.csrf_token }}
-            {{ form.hidden_tag() }}
+          <form
+            class="row g-3 needs-validation"
+            action="{{ url_for('signup') }}"
+            novalidate
+            method="post">
+            {{ form.csrf_token }} {{ form.hidden_tag() }}
             <div class="col-md-6">
-                <label for="firstName" class="form-label">First name</label>
-                {{ form.first_name(class="form-control", id="firstName") }}
-                
-                {% if form.first_name.errors %}
-                  <div class="fluid-container py-2">
-                      <ul class="alert alert-danger px-2">
-                          {% for error in form.first_name.errors %}
-                              <label for="error-message">{{ error }}</label>
-                          {% endfor %}
-                      </ul>
-                  </div>
-                {% endif %}
-
+              <label for="firstName" class="form-label">First name</label>
+              {{ form.first_name(class="form-control", id="firstName") }} {% if
+              form.first_name.errors %}
+              <div class="fluid-container py-2">
+                <ul class="alert alert-danger px-2">
+                  {% for error in form.first_name.errors %}
+                  <label for="error-message">{{ error }}</label>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
             </div>
             <div class="col-md-6">
               <label for="lastName" class="form-label">Last name</label>
-              {{ form.last_name(class="form-control", id="LastName") }}
-              
-              {% if form.last_name.errors %}
-                  <div class="fluid-container py-2">
-                      <ul class="alert alert-danger px-2">
-                          {% for error in form.last_name.errors %}
-                              <label for="error-message">{{ error }}</label>
-                          {% endfor %}
-                      </ul>
-                  </div>
-                {% endif %}
-
-          </div>
-          <div class="col-12">
-            <label for="email" class="form-label">Email</label>
-            {{ form.email(class="form-control", id="email") }}
-            
-            {% if form.email.errors %}
-                  <div class="fluid-container py-2">
-                      <ul class="alert alert-danger px-2">
-                          {% for error in form.email.errors %}
-                              <label for="error-message">{{ error }}</label>
-                          {% endfor %}
-                      </ul>
-                  </div>
-                {% endif %}
-
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
+              {{ form.last_name(class="form-control", id="LastName") }} {% if
+              form.last_name.errors %}
               <div class="fluid-container py-2">
                 <ul class="alert alert-danger px-2">
-                    {% for message in messages %}
-                        <label for="error-message">{{ message }}</label>
-                    {% endfor %}
+                  {% for error in form.last_name.errors %}
+                  <label for="error-message">{{ error }}</label>
+                  {% endfor %}
                 </ul>
+              </div>
+              {% endif %}
             </div>
-            {% endif %}
-          {% endwith %}
-  
-        </div>
-        <div class="col-12">
-          <label for="password" class="form-label">Password</label>
-          {{ form.password(class="form-control", id="password") }}
-          {% if form.password.errors %}
-                  <div class="fluid-container py-2">
-                      <ul class="alert alert-danger px-2">
-                          {% for error in form.password.errors %}
-                              <label for="error-message">{{ error }}</label>
-                          {% endfor %}
-                      </ul>
-                  </div>
-                {% endif %}
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-              {{ form.checkbox(class="form-check-input", id="checkbox") }}
-              <label class="form-check-label" for="terms">
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              {{ form.email(class="form-control", id="email") }} {% if
+              form.email.errors %}
+              <div class="fluid-container py-2">
+                <ul class="alert alert-danger px-2">
+                  {% for error in form.email.errors %}
+                  <label for="error-message">{{ error }}</label>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %} {% with messages = get_flashed_messages() %} {% if
+              messages %}
+              <div class="fluid-container py-2">
+                <ul class="alert alert-danger px-2">
+                  {% for message in messages %}
+                  <label for="error-message">{{ message }}</label>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %} {% endwith %}
+            </div>
+            <div class="col-12">
+              <label for="password" class="form-label">Password</label>
+              {{ form.password(class="form-control", id="password") }} {% if
+              form.password.errors %}
+              <div class="fluid-container py-2">
+                <ul class="alert alert-danger px-2">
+                  {% for error in form.password.errors %}
+                  <label for="error-message">{{ error }}</label>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                {{ form.checkbox(class="form-check-input", id="checkbox") }}
+                <label class="form-check-label" for="terms">
                   I agree to the terms and conditions
-              </label>
-              {% if form.checkbox.errors %}
-                  <div class="fluid-container py-2">
-                      <ul class="alert alert-danger px-2">
-                          {% for error in form.checkbox.errors %}
-                              <label for="error-message">{{ error }}</label>
-                          {% endfor %}
-                      </ul>
-                  </div>
+                </label>
+                {% if form.checkbox.errors %}
+                <div class="fluid-container py-2">
+                  <ul class="alert alert-danger px-2">
+                    {% for error in form.checkbox.errors %}
+                    <label for="error-message">{{ error }}</label>
+                    {% endfor %}
+                  </ul>
+                </div>
                 {% endif %}
-          </div>
-        </div>
-          <div class="col-12">
-              {{ form.submit(class="btn btn-md btn-info text-dark hover-text") }}
-          </div>
-        <div class="col-12 mt-3 text-center text-d-none">
-          <label for="redirect-login">Already have an account? <a href="{{ url_for('login') }}">Log in</a></label>
-          </div>
-        </form>
+              </div>
+            </div>
+            <div class="col-12">
+              {{ form.submit(class="btn btn-md btn-info text-dark hover-text")
+              }}
+            </div>
+            <div class="col-12 mt-3 text-center text-d-none">
+              <label for="redirect-login"
+                >Already have an account?
+                <a href="{{ url_for('login') }}">Log in</a></label
+              >
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -166,7 +161,5 @@
     <!-- Footer -->
 
     {% include "footer.html" %}
-
   </body>
 </html>
-
