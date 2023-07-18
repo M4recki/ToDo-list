@@ -65,7 +65,7 @@
             <div>
               <h1>Maximize your productivity - You will succeed with us!</h1>
               <label for="short-description" class="lead my-4">
-                Organise your life and increase your productivity with our
+                Organize your life and increase your productivity with our
                 advanced ToDo list. Stop wasting any more time searching and
                 forgetting important responsibilities. Our platform offers an
                 intuitive user interface that allows you to easily create, track
@@ -76,16 +76,14 @@
                 <a
                   class="text-decoration-none text-dark hover-text"
                   href="{{ url_for('create') }}"
-                  >Create task</a
-                >
+                  >Create task</a>
               </button>
               {% else %}
               <button class="btn btn-info btn-lg hover-text my-3 text-dark">
                 <a
                   class="text-decoration-none text-dark hover-text"
                   href="{{ url_for('login') }}"
-                  >Create task</a
-                >
+                  >Create task</a>
               </button>
               {% endif %}
             </div>
@@ -255,13 +253,26 @@
               Come and join our growing community of satisfied users!
             </h2>
 
+            {% if current_user.is_authenticated %}
+
+            <button class="btn btn-light btn-lg my-3 text-dark">
+              <a
+                class="text-decoration-none text-dark"
+                href="{{ url_for('home_page') }}"
+                >Sign up - it's free!</a>
+            </button>
+
+            {% else %}
+
             <button class="btn btn-light btn-lg my-3 text-dark">
               <a
                 class="text-decoration-none text-dark"
                 href="{{ url_for('signup') }}"
-                >Sign up - it's free!</a
-              >
+                >Sign up - it's free!</a>
             </button>
+
+            {% endif %}
+
           </div>
         </div>
       </div>
