@@ -15,6 +15,8 @@ import ssl
 app = Flask(__name__)
 
 # Login manager
+
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -47,10 +49,6 @@ class ToDo(db.Model):
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     user = relationship(User, backref='todos')
-
-
-with app.app_context():
-    db.create_all()
 
     def is_title_valid(self):
         max_title_length = 25
@@ -155,16 +153,13 @@ def signup():
         last_name = form.last_name.data
         email = form.email.data
         password = form.password.data
+        password_confirm = form.password_confirm.data
 
         hashed_password = generate_password_hash(
             password, method='pbkdf2:sha256', salt_length=9)
 
         new_user = User(first_name=first_name, last_name=last_name,
                         email=email, password=hashed_password)
-
-        if User.query.filter_by(email=email).first():
-            flash('Email already exists. Please login or use a different email.')
-            return redirect(url_for('signup'))
 
         db.session.add(new_user)
         db.session.commit()
@@ -178,6 +173,8 @@ def signup():
 
 
 # Login
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -199,7 +196,7 @@ def login():
     flash_messages = get_flashed_messages()
     return render_template('login_page.html', form=form, flash_messages=flash_messages)
 
-# Send email
+# Send email function
 
 
 def send_email(email_sender, subject, message):

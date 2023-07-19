@@ -69,6 +69,7 @@
                 <div class="col-md-6">
                   <label for="priority" class="form-label">Priority</label>
                 </div>
+                
                 <div class="btn-group custom-dropdown">
                   {{ form.priority(class="btn btn-info dropdown-toggle text-dark
                   hover-text", id="priority", type="button", value="{{
@@ -97,10 +98,13 @@
                 </div>
                 {% endif %}
               </div>
+              
               <div class="col-12">
                 <label for="title" class="form-label">Title</label>
                 {{ form.title(class="form-control", id="title",
-                value=form.title.data) }} {% if form.title.errors %}
+                value=form.title.data) }} 
+                
+                {% if form.title.errors %}
                 <div class="fluid-container py-2">
                   <ul class="alert alert-danger px-2">
                     {% for error in form.title.errors %}
@@ -108,21 +112,27 @@
                     {% endfor %}
                   </ul>
                 </div>
-                {% endif %} {% with messages = get_flashed_messages() %} {% if
-                messages %}
-                <div class="fluid-container py-2">
-                  <ul class="alert alert-danger px-2">
-                    {% for message in messages %}
-                    <label for="error-message">{{ message }}</label>
-                    {% endfor %}
-                  </ul>
-                </div>
-                {% endif %} {% endwith %}
+                {% endif %} 
+                
+                {% with messages = get_flashed_messages() %} 
+                  {% if messages %}
+                  <div class="fluid-container py-2">
+                    <ul class="alert alert-danger px-2">
+                      {% for message in messages %}
+                      <label for="error-message">{{ message }}</label>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  {% endif %} 
+                {% endwith %}
               </div>
+              
               <div class="col-12">
                 <label for="content" class="form-label">Content</label>
                 {{ form.content(class="form-control", id="message", rows="10",
-                value=" {{ form.content }}") }} {% if form.content.errors %}
+                value=" {{ form.content }}") }} 
+                
+                {% if form.content.errors %}
                 <div class="fluid-container py-2">
                   <ul class="alert alert-danger px-2">
                     {% for error in form.content.errors %}
@@ -132,6 +142,7 @@
                 </div>
                 {% endif %}
               </div>
+              
               <div class="col-12">
                 {{ form.submit(class="btn btn-md btn-info text-dark hover-text")
                 }}

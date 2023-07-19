@@ -65,10 +65,12 @@
             novalidate
             method="post">
             {{ form.csrf_token }} {{ form.hidden_tag() }}
+            
             <div class="col-md-6">
-              <label for="firstName" class="form-label">First name</label>
-              {{ form.first_name(class="form-control", id="firstName") }} {% if
-              form.first_name.errors %}
+              <label for="FirstName" class="form-label">First name</label>
+              {{ form.first_name(class="form-control", id="FirstName") }} 
+              
+              {% if form.first_name.errors %}
               <div class="fluid-container py-2">
                 <ul class="alert alert-danger px-2">
                   {% for error in form.first_name.errors %}
@@ -78,10 +80,12 @@
               </div>
               {% endif %}
             </div>
+            
             <div class="col-md-6">
-              <label for="lastName" class="form-label">Last name</label>
-              {{ form.last_name(class="form-control", id="LastName") }} {% if
-              form.last_name.errors %}
+              <label for="LastName" class="form-label">Last name</label>
+              {{ form.last_name(class="form-control", id="LastName") }} 
+              
+              {% if form.last_name.errors %}
               <div class="fluid-container py-2">
                 <ul class="alert alert-danger px-2">
                   {% for error in form.last_name.errors %}
@@ -91,10 +95,12 @@
               </div>
               {% endif %}
             </div>
+            
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
-              {{ form.email(class="form-control", id="email") }} {% if
-              form.email.errors %}
+              {{ form.email(class="form-control", id="email") }} 
+              
+              {% if form.email.errors %}
               <div class="fluid-container py-2">
                 <ul class="alert alert-danger px-2">
                   {% for error in form.email.errors %}
@@ -102,21 +108,26 @@
                   {% endfor %}
                 </ul>
               </div>
-              {% endif %} {% with messages = get_flashed_messages() %} {% if
-              messages %}
-              <div class="fluid-container py-2">
-                <ul class="alert alert-danger px-2">
-                  {% for message in messages %}
-                  <label for="error-message">{{ message }}</label>
-                  {% endfor %}
-                </ul>
-              </div>
-              {% endif %} {% endwith %}
+              {% endif %} 
+              
+              {% with messages = get_flashed_messages() %} 
+                {% if messages %}
+                <div class="fluid-container py-2">
+                  <ul class="alert alert-danger px-2">
+                    {% for message in messages %}
+                    <label for="error-message">{{ message }}</label>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% endif %} 
+              {% endwith %}
             </div>
+            
             <div class="col-12">
               <label for="password" class="form-label">Password</label>
-              {{ form.password(class="form-control", id="password") }} {% if
-              form.password.errors %}
+              {{ form.password(class="form-control", id="password") }} 
+              
+              {% if form.password.errors %}
               <div class="fluid-container py-2">
                 <ul class="alert alert-danger px-2">
                   {% for error in form.password.errors %}
@@ -125,6 +136,34 @@
                 </ul>
               </div>
               {% endif %}
+
+            <div class="col-12 mt-3">
+              <label for="ConfirmPassword" class="form-label">Confirm password</label>
+              {{ form.password_confirm(class="form-control", id="ConfirmPassword") }} 
+              
+              {% if form.password_confirm.errors %}
+              <div class="fluid-container py-2">
+                <ul class="alert alert-danger px-2">
+                  {% for error in form.password_confirm.errors %}
+                  <label for="error-message">{{ error }}</label>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+
+              {% with messages = get_flashed_messages() %} 
+                {% if messages %}
+                <div class="fluid-container py-2">
+                  <ul class="alert alert-danger px-2">
+                    {% for message in messages %}
+                    <label for="error-message">{{ message }}</label>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% endif %} 
+              {% endwith %}
+            </div>
+            
             </div>
             <div class="col-12">
               <div class="form-check">
@@ -132,6 +171,7 @@
                 <label class="form-check-label" for="terms">
                   I agree to the terms and conditions
                 </label>
+                
                 {% if form.checkbox.errors %}
                 <div class="fluid-container py-2">
                   <ul class="alert alert-danger px-2">
@@ -141,6 +181,7 @@
                   </ul>
                 </div>
                 {% endif %}
+              
               </div>
             </div>
             <div class="col-12">
@@ -150,8 +191,7 @@
             <div class="col-12 mt-3 text-center text-d-none">
               <label for="redirect-login"
                 >Already have an account?
-                <a href="{{ url_for('login') }}">Log in</a></label
-              >
+                <a href="{{ url_for('login') }}">Log in</a></label>
             </div>
           </form>
         </div>

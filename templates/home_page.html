@@ -71,6 +71,7 @@
                 intuitive user interface that allows you to easily create, track
                 and complete tasks.
               </label>
+              
               {% if current_user.is_authenticated %}
               <button class="btn btn-info btn-lg hover-text my-3 text-dark">
                 <a
@@ -78,7 +79,9 @@
                   href="{{ url_for('create') }}"
                   >Create task</a>
               </button>
+              
               {% else %}
+              
               <button class="btn btn-info btn-lg hover-text my-3 text-dark">
                 <a
                   class="text-decoration-none text-dark hover-text"
@@ -87,6 +90,7 @@
               </button>
               {% endif %}
             </div>
+            
             <img
               src="/static/img/to-do-list.png"
               alt="ToDo list image"
@@ -270,10 +274,9 @@
                 href="{{ url_for('signup') }}"
                 >Sign up - it's free!</a>
             </button>
-
             {% endif %}
-
           </div>
+        
         </div>
       </div>
     </section>

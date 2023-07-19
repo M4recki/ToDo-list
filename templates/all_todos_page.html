@@ -59,16 +59,18 @@
       <main>
         <div class="container py-5">
           <div class="row text-center py-5">
+            
             {% if not todos %}
             <h1 class="text-dark my-5">No ToDos found.</h1>
             <label for="no-todos-message" class="lead text-dark my-3"
               >You haven't added any todos yet. Start by creating a new
-              todo!</label
-            >
+              todo!</label>
+              
             {% else %} 
               {% for todo in todos %}
               <div class="col-md-4 py-4">
                 <div class="card mb-4 h-100">
+                  
                   <div class="card-header text-light bg-{{ todo.priority }}-todo">
                     {{ todo.priority.title() }} ToDo
                   </div>
@@ -111,6 +113,7 @@
             {% endfor %} 
           {% endif %}
           </div>
+        
         </div>
       </main>
     </section>
