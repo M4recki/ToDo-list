@@ -8,3 +8,4 @@ SQLAlchemy==2.0.19
 Werkzeug==2.3.6
 WTForms==3.0.1
 psycopg2-binary==2.9.6
+waitress==2.1.2
