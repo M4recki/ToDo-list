@@ -9,7 +9,6 @@ from os import environ
 from datetime import datetime
 import smtplib
 from email.message import EmailMessage
-import email_validator
 import ssl
 
 
