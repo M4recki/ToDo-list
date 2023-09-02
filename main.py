@@ -1,18 +1,16 @@
+from extensions import app, db
+from forms import CreateToDo, RegisterForm, LoginForm, ContactForm
+from models import ToDo, User
 from flask import Flask, render_template, redirect, url_for, flash, get_flashed_messages
 from flask_bootstrap import Bootstrap
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import relationship
-from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
-from forms import CreateToDo, RegisterForm, LoginForm, ContactForm
+from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 from os import environ
 from datetime import datetime
 import smtplib
 from email.message import EmailMessage
 import ssl
 
-
-app = Flask(__name__)
 
 # Login manager
 
@@ -23,39 +21,6 @@ login_manager.init_app(app)
 app.config['SECRET_KEY'] = environ.get('SECRET_KEY_TODO')
 
 Bootstrap(app)
-
-# Database connection
-app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('ToDoList_Database')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-# User table
-
-
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(100), nullable=False)
-    last_name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(250), nullable=False)
-
-# ToDos table
-
-
-class ToDo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    priority = db.Column(db.String(20), nullable=False)
-    title = db.Column(db.String(25), unique=True, nullable=False)
-    content = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    user = relationship(User, backref='todos')
-
-    def is_title_valid(self):
-        max_title_length = 25
-
-        if len(self.title) > max_title_length:
-            flash('Title is too long. Please type a shorter title.')
-            return False
 
 # Current year in footer
 
@@ -249,4 +214,4 @@ def load_user(user_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

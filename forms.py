@@ -22,7 +22,8 @@ class RegisterForm(FlaskForm):
     submit = SubmitField("Sign Me Up!")
     
     def validate_email(self, field):
-        from main import User, app
+        from extensions import app
+        from models import User
         with app.app_context():
             if User.query.filter_by(email=field.data).first():
                 raise ValidationError('Email already exists. Please login or use a different email.')

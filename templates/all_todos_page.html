@@ -63,8 +63,17 @@
             {% if not todos %}
             <h1 class="text-dark my-5">No ToDos found.</h1>
             <label for="no-todos-message" class="lead text-dark my-3"
-              >You haven't added any todos yet. Start by creating a new
-              todo!</label>
+              >You haven't added any ToDos yet. Start by creating a new
+              ToDo!</label>
+
+              <div class="d-sm-flex align-items-center justify-content-center py-4">
+                <button class="btn btn-info btn-lg hover-text my-3 text-dark">
+                  <a class="text-decoration-none text-dark hover-text"
+                    href="{{ url_for('create') }}"
+                    >Create ToDo</a>
+                </button>
+              </div>
+              
               
             {% else %} 
               {% for todo in todos %}
@@ -86,7 +95,7 @@
                         >Edit</a
                       >
                       <dialog id="delete-confirmation">
-                        Are you sure you want to delete this todo?
+                        Are you sure you want to delete this ToDo?
                         <div class="button-container my-5">
                           <button
                             class="btn btn-success me-3 hover-text text-dark"
