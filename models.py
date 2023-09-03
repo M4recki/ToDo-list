@@ -1,9 +1,10 @@
-from extensions import app, db
+from flask_login import UserMixin
+from app import db, app
 from os import environ
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin
-from flask import flash
+from flask import Flask, flash
 
 # User table
 

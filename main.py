@@ -1,4 +1,4 @@
-from extensions import app, db
+from app import db, app
 from forms import CreateToDo, RegisterForm, LoginForm, ContactForm
 from models import ToDo, User
 from flask import Flask, render_template, redirect, url_for, flash, get_flashed_messages
@@ -10,7 +10,6 @@ from datetime import datetime
 import smtplib
 from email.message import EmailMessage
 import ssl
-
 
 # Login manager
 
@@ -156,7 +155,7 @@ def login():
             return redirect(url_for('login'))
         else:
             login_user(user)
-            return redirect(url_for('home_page', name=User.first_name))
+            return redirect(url_for('home_page', name=current_user.first_name))
 
     flash_messages = get_flashed_messages()
     return render_template('login_page.html', form=form, flash_messages=flash_messages)

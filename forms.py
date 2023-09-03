@@ -22,7 +22,7 @@ class RegisterForm(FlaskForm):
     submit = SubmitField("Sign Me Up!")
     
     def validate_email(self, field):
-        from extensions import app
+        from app import app
         from models import User
         with app.app_context():
             if User.query.filter_by(email=field.data).first():
