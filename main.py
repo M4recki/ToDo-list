@@ -39,7 +39,7 @@ def home_page():
 # Create ToDo
 
 
-@app.route('/create', methods=['GET', 'POST'])
+@app.post('/create')
 @login_required
 def create():
     form = CreateToDo()
@@ -66,7 +66,7 @@ def create():
 # Edit ToDo
 
 
-@app.route('/edit/<int:todo_id>', methods=['GET', 'POST'])
+@app.post('/edit/<int:todo_id>')
 @login_required
 def edit(todo_id):
     todo = ToDo.query.get(todo_id)
@@ -84,14 +84,14 @@ def edit(todo_id):
 
         db.session.commit()
 
-        return redirect(url_for('home_page'))
+        return redirect(url_for('home_page', name=current_user.first_name))
 
     return render_template('edit_todo_page.html', form=form, todo_id=todo_id)
 
 # Delete ToDo
 
 
-@app.route('/delete/<int:todo_id>', methods=['GET', 'POST'])
+@app.post('/delete/<int:todo_id>')
 @login_required
 def delete(todo_id):
     todo_to_delete = ToDo.query.get(todo_id)
@@ -109,7 +109,7 @@ def all_todos():
 # Sign up
 
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.post('/signup')
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -130,7 +130,7 @@ def signup():
 
         login_user(new_user)
 
-        return redirect(url_for('home_page'))
+        return redirect(url_for('home_page', name=current_user.first_name))
 
     flash_messages = get_flashed_messages()
     return render_template('sign_up_page.html', form=form, flash_messages=flash_messages)
@@ -139,7 +139,7 @@ def signup():
 # Login
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.post('/login')
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -183,7 +183,7 @@ def send_email(email_sender, subject, message):
 # Contact
 
 
-@app.route('/contact', methods=['GET', 'POST'])
+@app.post('/contact')
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
