@@ -39,7 +39,7 @@ def home_page():
 # Create ToDo
 
 
-@app.post('/create')
+@app.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
     form = CreateToDo()
@@ -66,7 +66,7 @@ def create():
 # Edit ToDo
 
 
-@app.post('/edit/<int:todo_id>')
+@app.route('/edit/<int:todo_id>', methods=['GET', 'POST'])
 @login_required
 def edit(todo_id):
     todo = ToDo.query.get(todo_id)
@@ -91,7 +91,7 @@ def edit(todo_id):
 # Delete ToDo
 
 
-@app.post('/delete/<int:todo_id>')
+@app.route('/delete/<int:todo_id>', methods=['GET', 'POST'])
 @login_required
 def delete(todo_id):
     todo_to_delete = ToDo.query.get(todo_id)
@@ -100,7 +100,7 @@ def delete(todo_id):
     return redirect(url_for('all_todos'))
 
 
-@app.route('/all_todos')
+@app.route('/all_todos', methods=['GET', 'POST'])
 @login_required
 def all_todos():
     todos = ToDo.query.filter_by(user_id=current_user.id).all()
@@ -109,7 +109,7 @@ def all_todos():
 # Sign up
 
 
-@app.post('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -139,7 +139,7 @@ def signup():
 # Login
 
 
-@app.post('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -183,7 +183,7 @@ def send_email(email_sender, subject, message):
 # Contact
 
 
-@app.post('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
@@ -198,7 +198,7 @@ def contact():
     return render_template('contact_page.html', form=form)
 
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET', 'POST'])
 @login_required
 def logout():
     logout_user()
