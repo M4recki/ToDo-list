@@ -1,5 +1,5 @@
 from flask_login import UserMixin
-from project.app import db, app
+from app import db, app
 from os import environ
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
