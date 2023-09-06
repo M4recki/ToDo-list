@@ -84,7 +84,7 @@ def edit(todo_id):
 
         db.session.commit()
 
-        return redirect(url_for('home_page', name=current_user.first_name))
+        return redirect(url_for('all_todos', name=current_user.first_name))
 
     return render_template('edit_todo_page.html', form=form, todo_id=todo_id)
 
@@ -97,7 +97,7 @@ def delete(todo_id):
     todo_to_delete = ToDo.query.get(todo_id)
     db.session.delete(todo_to_delete)
     db.session.commit()
-    return redirect(url_for('all_todos'))
+    return redirect(url_for('all_todos', name=current_user.first_name))
 
 
 @app.route('/all_todos', methods=['GET', 'POST'])
