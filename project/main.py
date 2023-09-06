@@ -1,5 +1,5 @@
-from app import db, app
-from forms import CreateToDo, RegisterForm, LoginForm, ContactForm
+from project.app import db, app
+from project.forms import CreateToDo, RegisterForm, LoginForm, ContactForm
 from models import ToDo, User
 from flask import Flask, render_template, redirect, url_for, flash, get_flashed_messages
 from flask_bootstrap import Bootstrap
