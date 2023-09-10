@@ -33,31 +33,32 @@ Here are also the requirements in the list below:
 
 ### PC version
 
-![1](https://github.com/M4recki/ToDo-list/assets/111280515/ec79db4c-b9c1-46e9-a65b-491d8ab5fabb)
+![1](https://github.com/M4recki/ToDo-list/assets/111280515/2f8a2353-c553-47d9-9413-865122004c02)
 
-![2](https://github.com/M4recki/ToDo-list/assets/111280515/f0ca4d2c-67f2-4a3a-af7b-bae7694c2d08)
+![2](https://github.com/M4recki/ToDo-list/assets/111280515/f07c49f6-8880-42ec-a59d-ef857aa01922)
 
-![3](https://github.com/M4recki/ToDo-list/assets/111280515/45e87a16-02bf-47ba-8681-4bd9113046b4)
+![3](https://github.com/M4recki/ToDo-list/assets/111280515/95e5b45a-00ea-40e5-98ef-1938e590f767)
 
-![4](https://github.com/M4recki/ToDo-list/assets/111280515/7fea1b05-1ab3-4798-a886-2eb3683fd945)
+![4](https://github.com/M4recki/ToDo-list/assets/111280515/0467178d-a97a-4517-b05e-e3ee14dd32e9)
 
-![5](https://github.com/M4recki/ToDo-list/assets/111280515/22082890-da60-4f64-9bea-aef3f9172038)
+![5](https://github.com/M4recki/ToDo-list/assets/111280515/d618002a-dc58-43e5-b77e-fa270ae0fd5b)
 
-![6](https://github.com/M4recki/ToDo-list/assets/111280515/9485e94d-e1c0-41b0-b9a1-be220c0765ee)
+![6](https://github.com/M4recki/ToDo-list/assets/111280515/9ee30096-6cec-4c5b-8f9a-e93e511575ad)
 
-![7](https://github.com/M4recki/ToDo-list/assets/111280515/44a39f02-8b9f-4968-8585-0d255115afbb)
+![7](https://github.com/M4recki/ToDo-list/assets/111280515/6797c097-0d4b-44e0-9179-c0a4d6f5c058)
 
 ### Mobile version
 
-![8](https://github.com/M4recki/ToDo-list/assets/111280515/538ff64d-9090-4950-9d42-d607a7981425)
+![8](https://github.com/M4recki/ToDo-list/assets/111280515/95b6cd0c-c1fd-4e81-a16f-9ab3004f3da4)
 
-![9](https://github.com/M4recki/ToDo-list/assets/111280515/19b14a66-0560-4580-ad07-9ac4fe4b7e38)
+![9](https://github.com/M4recki/ToDo-list/assets/111280515/84fcbc00-d90e-44d3-ac60-bc0b453dcf36)
 
-![10](https://github.com/M4recki/ToDo-list/assets/111280515/024e77cf-b3f3-4689-874d-dae06ace4e2f)
+![10](https://github.com/M4recki/ToDo-list/assets/111280515/0362b547-b193-4760-9c64-c8f4886cd691)
 
-![11](https://github.com/M4recki/ToDo-list/assets/111280515/82cb0838-6a1f-4ed7-ba17-b7f3cf742f67)
+![11](https://github.com/M4recki/ToDo-list/assets/111280515/7e03eb02-8f01-4190-956c-6e3644a692f7)
 
-![12](https://github.com/M4recki/ToDo-list/assets/111280515/c9db846a-86c1-449b-b6f9-543793462582)
+![12](https://github.com/M4recki/ToDo-list/assets/111280515/b1af12f7-714c-4c7e-b417-012100fc4cac)
+
 
 ## Usage
 
